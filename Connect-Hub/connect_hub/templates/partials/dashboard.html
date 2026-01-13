@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-[80vh]">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
+        <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">
+            Welcome to your Dashboard, {{ request.user.username }}!
+        </h2>
+
+        <div class="space-y-4">
+            <p class="text-gray-700 text-center">
+                You have successfully logged in to Connect Hub.
+            </p>
+
+            <div class="bg-gray-50 p-4 rounded">
+                <h3 class="font-semibold text-gray-800 mb-2">Your Profile Information:</h3>
+                <p><strong>Username:</strong> {{ request.user.username }}</p>
+                <p><strong>Email:</strong> {{ request.user.email }}</p>
+                {% if profile.bio %}
+                    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+                {% endif %}
+                {% if profile.location %}
+                    <p><strong>Location:</strong> {{ profile.location }}</p>
+                {% endif %}
+                <p><strong>Member since:</strong> {{ request.user.date_joined|date:"F j, Y" }}</p>
+            </div>
+
+            <div class="text-center">
+                <a href="{% url 'home' %}" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700">
+                    Go to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Connect with People That Matter
+        </h1>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            Connect Hub is a simple social connection platform built to demonstrate
+            real-world DevOps practices using Django, Docker, Kubernetes, and CI/CD.
+        </p>
+
+        <div class="space-x-4">
+            <a href="{% url 'signup' %}"
+               class="bg-white text-indigo-700 px-6 py-3 rounded font-semibold hover:bg-gray-100">
+                Get Started
+            </a>
+            <a href="#"
+               class="border border-white px-6 py-3 rounded font-semibold hover:bg-white hover:text-indigo-700">
+                Learn More
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white p-8 rounded shadow">
+            <h3 class="text-xl font-semibold mb-4">Simple Django App</h3>
+            <p class="text-gray-600">
+                Clean Django templates and views with minimal business logic.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded shadow">
+            <h3 class="text-xl font-semibold mb-4">DevOps Focused</h3>
+            <p class="text-gray-600">
+                Built to showcase Git workflows, CI/CD pipelines, Docker, and Kubernetes.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded shadow">
+            <h3 class="text-xl font-semibold mb-4">Production Ready</h3>
+            <p class="text-gray-600">
+                Designed with scalability, automation, and infrastructure in mind.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
