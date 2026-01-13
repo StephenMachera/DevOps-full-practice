@@ -23,4 +23,5 @@ jobs:
             pip install -r Connect-Hub/requirements.txt
         - name: Run tests
           run: |
+            cd Connect-Hub/connect_hub
             python manage.py test connect_app
