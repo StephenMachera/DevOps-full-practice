@@ -15,8 +15,10 @@ SECRET_KEY = 'django-insecure-m&!h%40=(1%vag6t4p7%n-0$*mgfd4js*lb4=f$5wupu-iu_-t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+# Application definition
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Application definition
 
