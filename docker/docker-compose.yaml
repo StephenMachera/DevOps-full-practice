@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: connect_hub_web
+    environment:
+      - DEBUG=True
+      - PYTHON_ENV=development
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../Connect-Hub:/apps
