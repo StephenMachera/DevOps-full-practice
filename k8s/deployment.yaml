@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: connect-hub
+  labels:
+    app: connect-hub
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: connect-hub
+  template:
+    metadata:
+      labels:
+        app: connect-hub
+    spec:
+      containers:
+        - name: connect-hub
+          image: connect_hub:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DEBUG
+              value: "True"
+            - name: Python_ENV
+              value: "development"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthyz
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
