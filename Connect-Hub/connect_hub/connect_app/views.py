@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
@@ -50,3 +51,10 @@ def dashboard(request):
 def logout_view(request):
     logout(request)
     return redirect("home")
+
+# Check the app readiness
+def app_ready(request):
+    return HttpResponse("App is ready")
+# Check the app liveness
+def app_live(request):
+    return HttpResponse("App is live")
